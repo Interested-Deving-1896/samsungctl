@@ -47,6 +47,8 @@ def _control(std_scr, remote):
         elif row == height:
             std_scr.addstr("[Terminal is too small to show all keys]\n")
 
+    mappings_dict["\x7f"] = "KEY_RETURN"  # macOS backspace sends DEL (0x7f)
+
     running = True
     while running:
         key = std_scr.getkey()
